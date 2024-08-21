@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  frontend:
+    build:
+      context: .
+    command: npm run dev -- --host
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/apps/taiv/frontend
+      - node_modules:/apps/taiv/frontend/node_modules
+    networks:
+      - public
+
+networks:
+  public:
+
+
+volumes:
+  node_modules: {}
